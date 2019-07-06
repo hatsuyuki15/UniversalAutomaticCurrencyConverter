@@ -1,0 +1,145 @@
+body {
+    font: normal 12px/160% Verdana, Arial, Helvetica, sans-serif;
+}
+
+.centering {
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: auto;
+}
+
+.center {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+
+body, input, select {
+    background-color: #0F171E !important;
+    color: #d0d0d0 !important;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+input, select, .form-control {
+    border: solid 1px #2F373E;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    margin: 5px auto;
+}
+
+input[type="number"], input[type="text"], option, select {
+    text-align: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    text-align-last: center;
+}
+
+input {
+    text-align: center;
+}
+
+input[type="number"], input[type="text"] {
+    cursor: text;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    width: 100%;
+}
+
+.form-control {
+    border-radius: 0 !important;
+    border: 1px solid #1F272E;
+    border-bottom: 1px solid #2F373E;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 300px;
+    margin-left: -150px;
+
+    height: 460px;
+    margin-top: -230px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    background-color: #1F272E;
+    border-radius: 5px;
+    border: 1px solid #3F474E;
+}
+
+.response {
+    text-align: center;
+    font-size: 10px;
+}
+
+.bottomConnected {
+    border-top: solid 1px #2F373E;
+    border-left: solid 1px #2F373E;
+    border-right: solid 1px #2F373E;
+    border-bottom: solid 1px transparent;
+    border-radius: 3px 3px 0 0;
+}
+
+.topConnected {
+    border-bottom: solid 1px #2F373E;
+    border-left: solid 1px #2F373E;
+    border-right: solid 1px #2F373E;
+    border-top: solid 1px transparent;
+    border-radius: 0 0 3px 3px;
+}
+
+.lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+}
+.lds-circle > div {
+    display: inline-block;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #fff;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+    0%, 100% {
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(1800deg);
+        animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+        transform: rotateY(3600deg);
+    }
+}
