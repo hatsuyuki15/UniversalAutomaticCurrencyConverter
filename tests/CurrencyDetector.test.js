@@ -4,6 +4,20 @@ describe("CurrencyDetector tests", () => {
         access: null
     });
 
+    it("Caught with *", () => {
+        // Setup
+        const detector = new CurrencyDetector(browser);
+        const data = 'USD 5*';
+        const expected = [new SearchResult(data, '', ' ', '', '*', 5, 'USD', 0)];
+
+        // Act
+        const actual = detector.findAll(data, false);
+
+        // Assert
+        expect(actual).toBeDefined();
+        expect(actual).toEqual(expected);
+    });
+
     it("Expect only currency correct", () => {
         // Setup
         const detector = new CurrencyDetector(browser);

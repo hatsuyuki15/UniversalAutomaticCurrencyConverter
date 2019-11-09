@@ -57,11 +57,11 @@ class CurrencyDetector {
             NOK: 'NOK'
         };
 
-        const s = /["+\-'& ,.<>()\\/\s]/;
+        const s = /[-"+'& ,.<>()\\/\s*]/;
         const start = new RegExp(`(${s.source}|^)`).source;
         const end = new RegExp(`(${s.source}|$)`).source;
 
-        const whitespace = /(\s*)/.source;
+        const whitespace = /((?:\s|&nbsp;)*)/.source;
 
         const currency = '(' + [
             /[¥A-Z]{3}\$?/.source,
@@ -80,10 +80,10 @@ class CurrencyDetector {
         const smallInteger = /(?:0)/.source;
         const smallDecimal = /(?:[,.]\d+)/.source;
 
-        // Find numbers in ranges, like 10-50, ONLY WHOLE NUMBERS
-        const rangeInteger = `${normalInteger}${normalDecimal}?\\s*-\\s*${normalInteger}${normalDecimal}?`;
+        // Find numbers in ranges, like 10-50
+        const rangeDecimals = `${normalInteger}${normalDecimal}?\\s*-\\s*${normalInteger}${normalDecimal}?`;
 
-        const integers = `(${[rangeInteger, normalInteger, smallInteger].join('|')})`;
+        const integers = `(${[rangeDecimals, normalInteger, smallInteger].join('|')})`;
         const decimals = `(${[normalDecimal, smallDecimal].join('|')})?`;
 
         const numberSource = `(\-)?${integers}${decimals}`;

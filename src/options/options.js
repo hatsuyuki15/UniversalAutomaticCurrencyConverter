@@ -290,4 +290,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const isFirstTime = await Browser.load(Utils.storageIds()).then(r => Object.keys(r).length === 0);
     if (isFirstTime)
         document.getElementById('firstime_message').classList.remove('hidden');
+
+    const donationsList = document.getElementById('donations');
+    const buy = BuyWrapper.instance;
+
+    donationsList.innerText = JSON.stringify(await buy.items().catch(e => e.rawError));
 });

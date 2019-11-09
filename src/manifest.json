@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Universal Automatic Currency Converter",
   "short_name": "UA Currency Converter",
-  "version": "2.8.0",
-  "description": "Your new currency converter.",
+  "version": "2.8.1",
+  "description": "Your new currency converter for everything web-related",
   "author": "Baizey",
   "icons": {
     "16": "icons/icon16.png",
@@ -25,6 +25,7 @@
         "XRegExp.js",
         "Utils.js",
         "Browser.js",
+        "BuyWrapper.js",
         "SiteLocalization.js",
         "CustomTag.js",
         "Blacklist.js",
@@ -50,19 +51,16 @@
     ],
     "persistent": true
   },
-
   "options_page": "options/options.html",
   "options_ui": {
     "page": "options/options.html"
   },
-
   "browser_specific_settings": {
     "gecko": {
       "id": "{c1ae7a88-3721-459c-9f55-c527123c1859}",
       "strict_min_version": "57.0"
     }
   },
-
   "permissions": [
     "contextMenus",
     "activeTab",
