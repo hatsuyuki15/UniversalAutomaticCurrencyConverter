@@ -53,9 +53,16 @@ class ElementTransformer {
 
         if (!hasEvents) {
             this.conversions.push(convertedElement);
-            element.addEventListener('mouseout', () => mouseIsOver = null);
-            element.addEventListener('mouseover', () => mouseIsOver = element);
-            element.addEventListener('click', () => convertedElement.flip());
+
+            element.addEventListener('mouseover', () => {
+                mouseIsOver = element;
+                convertedElement.flip();
+            });
+            element.addEventListener('mouseout', () => {
+                mouseIsOver = null;
+                convertedElement.flip();
+            });
+
             convertedElement.updateUi();
         }
 
