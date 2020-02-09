@@ -43,8 +43,6 @@ class Utils {
             'currencyLocalizationAsian',
             'currencyLocalizationKroner',
             'currencyHighlightColor',
-            'currencyHighlightDuration',
-            'currencyUsingHighlight',
             'currencyShortcut',
             'thousandDisplay',
             'decimalDisplay',

@@ -63,23 +63,19 @@ const updateLists = () => {
 const updateExamples = () => {
     const formatter = engine.numberFormatter;
     const converter = engine.currencyConverter;
-    const formattingExample = 123456.78;
-    const conversionExample = 100;
-    const formattingDiv = document.getElementById('formattingExample');
-    if (formattingDiv) formattingDiv.value = formatter.format(formatter.round(formattingExample));
+    
+    const formattingValue = 1234.56;
+    const conversionValue = 100;
+    
+    const formattingElement = document.getElementById('formattingExample');
+    formattingElement.value = formatter.format(formatter.round(formattingValue));
 
-    const displayExample = document.getElementById('displayExample');
-    if (displayExample) displayExample.value = engine.transform(conversionExample, converter.baseCurrency);
-};
+    const displayElement = document.getElementById('displayExample');
+    displayElement.value = engine.transform(conversionValue, converter.baseCurrency);
 
-let lastHighLight = Date.now();
-const updateHighlightExample = () => {
-    if (Date.now() <= lastHighLight + 1000)
-        return;
-    lastHighLight = Date.now();
-    engine.elementTransformer
-        .highlightConversion(document.getElementById('highlightExample'))
-        .catch();
+    const highlightElement = document.getElementById('highlightExample');
+    highlightElement.value = formatter.format(formattingValue);
+    engine.elementTransformer.highlightConversion(highlightElement);
 };
 
 const initiateCustomElements = () => {
@@ -127,7 +123,6 @@ const getUiValue = key => {
 
         // Input field
         case 'currencyHighlightColor':
-        case 'currencyHighlightDuration':
         case 'currencyConversionAmount':
         case 'currencyShortcut':
         case 'decimalAmount':
@@ -137,7 +132,6 @@ const getUiValue = key => {
         // Checkbox
         case 'showNonDefaultCurrencyAlert':
         case 'currencyUsingAutomatic':
-        case 'currencyUsingHighlight':
         case 'currencyUsingCustomTag':
         case 'intelligentRounding':
             return element.checked;
@@ -188,20 +182,11 @@ const setUiValue = async (key, value) => {
             break;
 
         case 'currencyHighlightColor':
-            engine.highlighter.withColor(value);
+            engine.highlighter.setColor(value);
             element.value = engine.highlighter.color;
-            updateHighlightExample();
+            updateExamples();
             break;
-        case 'currencyHighlightDuration':
-            engine.highlighter.withDuration(value);
-            element.value = engine.highlighter.duration;
-            updateHighlightExample();
-            break;
-        case 'currencyUsingHighlight':
-            engine.highlighter.using(value);
-            element.change(engine.highlighter.isEnabled);
-            updateHighlightExample();
-            break;
+
         case 'currency':
             engine.currencyConverter.withBaseCurrency(value);
             element.value = engine.currencyConverter.baseCurrency;

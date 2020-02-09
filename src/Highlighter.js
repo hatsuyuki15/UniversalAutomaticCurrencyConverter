@@ -1,30 +1,26 @@
 class Highlighter {
     constructor() {
-        this.duration = 500;
-        this.isEnabled = true;
         this.color = 'yellow';
     }
 
-    withDuration(value) {
-        value = value - 0;
-        if (!Utils.isSafeNumber(value))
-            return this.duration;
-        if (value <= 0)
-            return this.duration;
-        this.duration = value;
-        return this.duration;
-    }
-
-    withColor(color) {
+    setColor(color) {
+        // Validate color input
         const div = document.createElement('div');
         div.style.backgroundColor = color;
-        if (div.style.backgroundColor)
-            this.color = color;
-        return this.color;
+        if (div.style.backgroundColor !== color) {
+            return;
+        }
     }
 
-    using(value) {
-        this.isEnabled = Utils.isDefined(value) ? !!value : this.isEnabled;
-        return this.isEnabled;
+    getTextShadowStyle() {
+        const color = this.color;
+        const style =
+            `${color}  2px 0px 2px, ` +
+            `${color} -2px 0px 2px, ` +
+            `${color}  4px 0px 4px, ` +
+            `${color} -4px 0px 4px, ` +
+            `${color}  6px 0px 6px, ` +
+            `${color} -6px 0px 6px`;
+        return style;
     }
 }

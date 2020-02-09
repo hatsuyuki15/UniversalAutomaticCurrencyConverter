@@ -80,10 +80,6 @@ class Engine {
 
             case 'currencyHighlightColor':
                 return this.highlighter.color;
-            case 'currencyHighlightDuration':
-                return this.highlighter.duration;
-            case 'currencyUsingHighlight':
-                return this.highlighter.isEnabled;
 
             case 'currencyCustomTag':
                 return this.customTag.tag;
@@ -137,9 +133,7 @@ class Engine {
             self.shouldAutoconvert(resp['currencyUsingAutomatic']);
             self.withCurrencyShortcut(resp['currencyShortcut']);
 
-            self.highlighter.withColor(resp['currencyHighlightColor']);
-            self.highlighter.withDuration(resp['currencyHighlightDuration']);
-            self.highlighter.using(resp['currencyUsingHighlight']);
+            self.highlighter.setColor(resp['currencyHighlightColor']);
 
             self.customTag.withTag(resp['currencyCustomTag']);
             self.customTag.withValue(resp['currencyCustomTagValue']);

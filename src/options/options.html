@@ -165,28 +165,15 @@
     <!-- Highlighting -->
     <div class="row">
         <h2 class="centering">Highlighting</h2>
-        <div style="width:33.33%; float:left">
-            <label class="center" for="currencyUsingHighlight">Highlight conversions</label>
-            <div id="currencyUsingHighlight" class="checkbox centering">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div style="width:33.33%; float:left">
+        <div class="center">
             <label class="center" for="currencyHighlightColor">Color</label>
-            <input id="currencyHighlightColor" class="highlight form-control" name="currencyHighlightColor"
-                   type="text">
-            <span class="help-block center">Allows both names and HEX</span>
+            <input id="currencyHighlightColor" class="highlight form-control" name="currencyHighlightColor" type="text">
+            <span class="help-block center">Accepts HTML color values.</span>
         </div>
-        <div style="width:33.33%; float:left">
-            <label class="center" for="currencyHighlightDuration">Duration</label>
-            <input id="currencyHighlightDuration" class="highlight form-control number"
-                   name="currencyHighlightDuration"
-                   type="number"
-                   value="500" min="0">
-            <span class="help-block center">1000 = 1 second</span>
+        <div class="center">
+            <label class="center" for="highlightExample">Live example</label>
+            <input id="highlightExample" type="text" readonly>
         </div>
-        <label class="center" id="highlightExample">Highlight example</label>
     </div>
     <!-- Custom display -->
     <div class="row">

@@ -59,24 +59,14 @@ class ElementTransformer {
             convertedElement.updateUi();
         }
 
-        this.highlightConversion(element).catch(e => Utils.logError(e));
+        this.highlightConversion(element);
 
         return convertedElement;
     }
 
-    async highlightConversion(element) {
-        if (!this.engine.highlighter.isEnabled)
-            return;
+    highlightConversion(element) {
         const highlighter = this.engine.highlighter;
-        const duration = highlighter.duration;
-        const oldColor = element.style.backgroundColor;
-        element.classList.add('highlighted');
-        element.style.backgroundColor = highlighter.color;
-        await Utils.wait(duration);
-        element.classList.add('hiddenHighlight');
-        element.style.backgroundColor = oldColor;
-        await Utils.wait(5 * duration);
-        element.classList.remove('highlighted', 'hiddenHighlight');
+        element.style.textShadow = highlighter.getTextShadowStyle();
     }
 
     /**
